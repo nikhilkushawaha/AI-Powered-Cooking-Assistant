@@ -1,0 +1,90 @@
+/* ── RecipePage ──────────────────────────────────────────────────────────── */
+
+.page {
+  min-height: 100vh;
+  background: var(--bg-primary, #0D0D0D);
+}
+
+.pageInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* Hero header */
+.hero {
+  text-align: center;
+  padding: 40px 0 36px;
+}
+
+.heroTitle {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-primary, #fff);
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.heroTitle span {
+  background: linear-gradient(135deg, #E94560, #F5A623);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  color: var(--text-secondary, #A0AEC0);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Tab bar */
+.tabBar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border, #2D3748);
+  margin-bottom: 36px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabBar::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  padding: 14px 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary, #A0AEC0);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tab:hover {
+  color: var(--text-primary, #fff);
+}
+
+.tabActive {
+  color: var(--text-primary, #fff);
+  border-bottom-color: #E94560;
+}
+
+/* Tab content */
+.tabContent {
+  animation: fadeIn 0.22s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

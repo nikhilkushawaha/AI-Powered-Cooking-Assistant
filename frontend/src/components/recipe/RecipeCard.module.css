@@ -1,0 +1,290 @@
+/* ── RecipeCard ──────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--bg-card, #16213E);
+  border: 1px solid var(--border, #2D3748);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(233, 69, 96, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(233, 69, 96, 0.12);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #fff);
+  margin: 0;
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.titleIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badgeEasy {
+  background: rgba(72, 187, 120, 0.2);
+  color: #48BB78;
+  border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+.badgeMedium {
+  background: rgba(245, 166, 35, 0.2);
+  color: #F5A623;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+.badgeHard {
+  background: rgba(233, 69, 96, 0.2);
+  color: #E94560;
+  border: 1px solid rgba(233, 69, 96, 0.3);
+}
+
+.badgeCuisine {
+  background: rgba(99, 179, 237, 0.15);
+  color: #63B3ED;
+  border: 1px solid rgba(99, 179, 237, 0.25);
+  text-transform: none;
+}
+
+.badgeVeg {
+  background: rgba(72, 187, 120, 0.15);
+  color: #48BB78;
+  border: 1px solid rgba(72, 187, 120, 0.25);
+  text-transform: none;
+}
+
+.badgeNonVeg {
+  background: rgba(233, 69, 96, 0.15);
+  color: #E94560;
+  border: 1px solid rgba(233, 69, 96, 0.25);
+  text-transform: none;
+}
+
+/* Description */
+.description {
+  color: var(--text-secondary, #A0AEC0);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Stats row */
+.stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  border-top: 1px solid var(--border, #2D3748);
+  border-bottom: 1px solid var(--border, #2D3748);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.83rem;
+  color: var(--text-secondary, #A0AEC0);
+  font-weight: 500;
+}
+
+.stat span:first-child {
+  font-size: 1rem;
+}
+
+/* Section headers */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sectionTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary, #fff);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chevron {
+  font-size: 0.7rem;
+  color: var(--text-secondary, #A0AEC0);
+  transition: transform 0.2s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Ingredients list */
+.ingredientList {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ingredientItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.ingredientName {
+  color: var(--text-primary, #fff);
+  font-weight: 500;
+}
+
+.ingredientQty {
+  color: var(--text-secondary, #A0AEC0);
+  font-size: 0.8rem;
+}
+
+.showMoreBtn {
+  background: none;
+  border: none;
+  color: #E94560;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 4px;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.showMoreBtn:hover {
+  opacity: 0.8;
+}
+
+/* Instructions list */
+.instructionList {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.instructionItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.stepNum {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E94560, #F5A623);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.stepText {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #A0AEC0);
+  line-height: 1.55;
+  flex: 1;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  flex: 1;
+  min-width: 100px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border, #2D3748);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary, #A0AEC0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary, #fff);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.deleteBtn {
+  color: #E94560;
+  border-color: rgba(233, 69, 96, 0.25);
+  background: rgba(233, 69, 96, 0.05);
+}
+
+.deleteBtn:hover {
+  background: rgba(233, 69, 96, 0.15);
+  border-color: rgba(233, 69, 96, 0.5);
+  color: #E94560;
+}
+
+.copyBtn.copied {
+  color: #48BB78;
+  border-color: rgba(72, 187, 120, 0.4);
+  background: rgba(72, 187, 120, 0.08);
+}

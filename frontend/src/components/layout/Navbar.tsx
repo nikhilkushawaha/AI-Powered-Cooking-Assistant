@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { useAuthStore } from '../../store/authStore';
 import Avatar from '../ui/Avatar';
@@ -8,6 +8,7 @@ import Button from '../ui/Button';
 const Navbar: React.FC = () => {
   const { user, isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
+  const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -65,6 +66,17 @@ const Navbar: React.FC = () => {
                     }}
                   >
                     💬 Chat
+                  </button>
+                  <button
+                    className={`${styles['dropdown-item']} ${location.pathname === '/recipes' ? styles.active : ''}`}
+                    role="menuitem"
+                    onClick={() => {
+                      setDropdownOpen(false);
+                      navigate('/recipes');
+                    }}
+                    id="nav-recipes-btn"
+                  >
+                    🍳 Recipes
                   </button>
                   <div className={styles['dropdown-divider']} />
                   <button

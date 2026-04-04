@@ -1,0 +1,344 @@
+/* ── RecipeGenerator ─────────────────────────────────────────────────────── */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── LEFT: Input Panel ───────────────────────────────────────────────────── */
+
+.inputPanel {
+  background: var(--bg-card, #16213E);
+  border: 1px solid var(--border, #2D3748);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.panelHeader h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary, #fff);
+  margin: 0 0 6px;
+}
+
+.panelHeader p {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #A0AEC0);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Ingredient input row */
+.ingredientInputRow {
+  display: flex;
+  gap: 10px;
+}
+
+.ingredientInput {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border, #2D3748);
+  border-radius: 10px;
+  padding: 11px 15px;
+  color: var(--text-primary, #fff);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ingredientInput:focus {
+  border-color: rgba(233, 69, 96, 0.6);
+  background: rgba(233, 69, 96, 0.04);
+}
+
+.ingredientInput::placeholder {
+  color: var(--text-secondary, #A0AEC0);
+}
+
+.addBtn {
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #E94560, #F5A623);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.addBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Ingredient pills */
+.pillsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pillsCount {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #A0AEC0);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(233, 69, 96, 0.15);
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  color: #E94560;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  animation: pillIn 0.2s ease;
+}
+
+@keyframes pillIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.pillRemove {
+  background: none;
+  border: none;
+  color: #E94560;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.pillRemove:hover {
+  opacity: 1;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filterLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary, #A0AEC0);
+  margin-bottom: 4px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border, #2D3748);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text-primary, #fff);
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23A0AEC0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.select:focus {
+  border-color: rgba(233, 69, 96, 0.5);
+}
+
+.select option {
+  background: #1A1A2E;
+  color: #fff;
+}
+
+/* Generate button */
+.generateBtn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #E94560 0%, #F5A623 100%);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s, transform 0.15s;
+  position: relative;
+}
+
+.generateBtn:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.generateBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tips box */
+.tipsBox {
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #A0AEC0);
+  line-height: 1.5;
+}
+
+/* Validation / error messages */
+.errorMsg {
+  font-size: 0.82rem;
+  color: #E94560;
+  margin: -8px 0 0;
+}
+
+/* ── RIGHT: Result Panel ──────────────────────────────────────────────────── */
+
+.resultPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Empty state */
+.emptyState {
+  background: var(--bg-card, #16213E);
+  border: 1px dashed var(--border, #2D3748);
+  border-radius: 20px;
+  padding: 60px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.emptyTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary, #fff);
+  margin: 0;
+}
+
+.emptySubtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #A0AEC0);
+  margin: 0;
+}
+
+/* Skeleton loader */
+.skeleton {
+  background: var(--bg-card, #16213E);
+  border: 1px solid var(--border, #2D3748);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeletonLine {
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(
+    90deg,
+    #1A1A2E 25%,
+    #16213E 50%,
+    #1A1A2E 75%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* Success toast */
+.successToast {
+  background: rgba(72, 187, 120, 0.12);
+  border: 1px solid rgba(72, 187, 120, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #48BB78;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* API error */
+.apiError {
+  background: rgba(233, 69, 96, 0.1);
+  border: 1px solid rgba(233, 69, 96, 0.25);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #E94560;
+  font-size: 0.875rem;
+}

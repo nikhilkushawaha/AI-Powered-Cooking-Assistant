@@ -133,6 +133,11 @@
   color: #fff;
 }
 
+.dropdown-item.active {
+  color: #E94560;
+  background: rgba(233, 69, 96, 0.08);
+}
+
 .dropdown-item.danger:hover {
   background: rgba(252,129,129,0.12);
   color: #FC8181;

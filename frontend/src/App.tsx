@@ -8,6 +8,7 @@ const LandingPage = lazy(() => import('./pages/LandingPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage'));
 const ChatPage = lazy(() => import('./pages/ChatPage'));
+const RecipePage = lazy(() => import('./pages/RecipePage'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -89,6 +90,14 @@ const App: React.FC = () => {
               element={
                 <ProtectedRoute>
                   <ChatPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/recipes"
+              element={
+                <ProtectedRoute>
+                  <RecipePage />
                 </ProtectedRoute>
               }
             />
