@@ -1,0 +1,6 @@
+﻿src/api/axios.ts(5,24): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/components/chat/ChatWindow.tsx(2,20): error TS2307: Cannot find module './ChatWindow.module.css' or its corresponding type declarations.
+src/components/chat/InputBar.tsx(2,20): error TS2307: Cannot find module './InputBar.module.css' or its corresponding type declarations.
+src/components/chat/MessageBubble.tsx(2,20): error TS2307: Cannot find module './MessageBubble.module.css' or its corresponding type declarations.
+src/components/layout/Navbar.tsx(3,20): error TS2307: Cannot find module './Navbar.module.css' or its corresponding type declarations.
+
