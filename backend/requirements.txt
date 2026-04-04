@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]
+asyncpg
+alembic
+passlib[bcrypt]
+bcrypt==3.2.2
+python-jose[cryptography]
+pydantic-settings
+langchain
+langchain-groq
+groq
+python-dotenv
+pydantic
+python-multipart
