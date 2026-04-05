@@ -32,10 +32,34 @@ const Navbar: React.FC = () => {
     <nav className={styles.navbar} role="navigation" aria-label="Main navigation">
       <div className={styles['navbar-inner']}>
         {/* Logo */}
-        <Link to={isAuthenticated ? '/chat' : '/'} className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           <span className={styles['logo-icon']}>🍳</span>
           <span className={styles['logo-text']}>Chef AI</span>
         </Link>
+
+        {/* Main Links */}
+        {isAuthenticated && user && (
+          <div className={styles['nav-links']}>
+            <button
+              className={`${styles['nav-link']} ${location.pathname === '/chat' ? styles.active : ''}`}
+              onClick={() => navigate('/chat')}
+            >
+              💬 Chat
+            </button>
+            <button
+              className={`${styles['nav-link']} ${location.pathname === '/recipes' ? styles.active : ''}`}
+              onClick={() => navigate('/recipes')}
+            >
+              🍳 Recipes
+            </button>
+            <button
+              className={`${styles['nav-link']} ${location.pathname === '/knowledge' ? styles.active : ''}`}
+              onClick={() => navigate('/knowledge')}
+            >
+              📚 Knowledge
+            </button>
+          </div>
+        )}
 
         {/* Right side */}
         <div className={styles['nav-right']}>
