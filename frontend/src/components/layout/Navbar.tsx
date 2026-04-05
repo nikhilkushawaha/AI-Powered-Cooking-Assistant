@@ -78,6 +78,17 @@ const Navbar: React.FC = () => {
                   >
                     🍳 Recipes
                   </button>
+                  <button
+                    className={`${styles['dropdown-item']} ${location.pathname === '/knowledge' ? styles.active : ''}`}
+                    role="menuitem"
+                    onClick={() => {
+                      setDropdownOpen(false);
+                      navigate('/knowledge');
+                    }}
+                    id="nav-knowledge-btn"
+                  >
+                    📚 Knowledge
+                  </button>
                   <div className={styles['dropdown-divider']} />
                   <button
                     className={`${styles['dropdown-item']} ${styles.danger}`}

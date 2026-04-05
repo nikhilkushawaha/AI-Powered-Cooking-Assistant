@@ -1,0 +1,159 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.filterBar label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.select {
+  flex: 1;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.inputArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.textarea {
+  width: 100%;
+  height: 120px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+}
+
+.textarea:focus {
+  border-color: var(--accent-primary);
+}
+
+.inputFooter {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.searchBtn {
+  margin-top: 8px;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.searchBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.noDocsBox {
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid var(--accent-secondary);
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.noDocsIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.noDocsBox h3 {
+  color: var(--accent-secondary);
+  margin: 0 0 8px;
+}
+
+.noDocsBox p {
+  color: var(--text-secondary);
+  margin: 0 0 20px;
+}
+
+.uploadBtn {
+  background: var(--accent-secondary);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.loadingCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+}
+
+.brainBox {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.loadingCard h3 {
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.loadingCard p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.errorBox {
+  background: rgba(252, 129, 129, 0.1);
+  color: var(--error);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(252, 129, 129, 0.3);
+}

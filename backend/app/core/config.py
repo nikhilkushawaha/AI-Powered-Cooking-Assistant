@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     GROQ_API_KEY: str
+    CHROMA_PERSIST_DIR: str = "./chroma_db"
 
     model_config = SettingsConfigDict(env_file=".env")
 

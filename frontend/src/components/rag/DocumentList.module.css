@@ -1,0 +1,208 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.header p {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.statsBar {
+  background: var(--bg-card);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-all;
+  padding-right: 16px;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.badgeReady {
+  background: rgba(72, 187, 120, 0.15);
+  color: var(--success);
+}
+
+.badgeProcessing {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--accent-secondary);
+}
+
+.badgeFailed {
+  background: rgba(252, 129, 129, 0.15);
+  color: var(--error);
+}
+
+.cardMeta {
+  display: flex;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.cardMeta span {
+  background: var(--bg-secondary);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cardDate {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btnAsk {
+  background: var(--accent-primary);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btnAsk:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnRemove {
+  background: transparent;
+  color: var(--error);
+  border: 1px solid var(--error);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btnRemove:hover {
+  background: rgba(252, 129, 129, 0.1);
+}
+
+.confirmBox {
+  background: rgba(252, 129, 129, 0.05);
+  border: 1px solid var(--error);
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.confirmText {
+  margin: 0 0 12px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 12px;
+}
+
+.btnCancel {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnDelete {
+  background: var(--error);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.emptyState h3 {
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.emptyState p {
+  color: var(--text-secondary);
+  margin: 0 0 24px;
+}
+
+.uploadBtn {
+  background: var(--accent-primary);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 48px;
+}

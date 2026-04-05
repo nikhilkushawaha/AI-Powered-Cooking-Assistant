@@ -88,3 +88,49 @@ export interface RecipeListOut {
   total: number;
 }
 
+// ── Phase 3: RAG types ─────────────────────────────────────────────────────
+
+export interface DocumentOut {
+  id: string;
+  original_filename: string;
+  file_type: string;
+  file_size: number;
+  chunks_count: number;
+  status: "processing" | "ready" | "failed";
+  created_at: string;
+}
+
+export interface SourceChunk {
+  content: string;
+  document_name: string;
+  relevance: number;
+}
+
+export interface AskDocumentRequest {
+  query: string;
+  document_id?: string;
+}
+
+export interface AskDocumentResponse {
+  query: string;
+  answer: string;
+  sources: SourceChunk[];
+  documents_searched: number;
+}
+
+export interface DocumentListResponse {
+  documents: DocumentOut[];
+  total: number;
+}
+
+export interface UploadDocumentResponse {
+  id: string;
+  filename: string;
+  original_filename: string;
+  file_type: string;
+  file_size: number;
+  chunks_count: number;
+  status: 'processing' | 'ready' | 'failed';
+  created_at: string;
+  message: string;
+}

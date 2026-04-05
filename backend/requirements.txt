@@ -13,3 +13,8 @@ groq
 python-dotenv
 pydantic
 python-multipart
+chromadb
+pypdf
+langchain-text-splitters
+sentence-transformers
+langchain-huggingface
