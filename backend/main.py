@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.database import create_tables
-from app.routers import auth, chat, recipe, rag
+from app.routers import auth, chat, recipe, rag, favorite, grocery, recommendation
 
 
 @asynccontextmanager
@@ -36,6 +36,9 @@ app.include_router(auth.router)
 app.include_router(chat.router)
 app.include_router(recipe.router)
 app.include_router(rag.router)
+app.include_router(favorite.router)
+app.include_router(grocery.router)
+app.include_router(recommendation.router)
 
 
 @app.get("/")

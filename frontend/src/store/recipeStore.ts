@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { ExtractIngredientsResponse, Recipe } from '../types';
 
-type ActiveTab = 'generator' | 'extractor' | 'my-recipes';
+type ActiveTab = 'generator' | 'extractor' | 'my-recipes' | 'recommendations' | 'grocery';
 
 interface RecipeState {
   generatedRecipe: Recipe | null;

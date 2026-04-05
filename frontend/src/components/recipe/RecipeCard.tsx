@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useState } from 'react';
 import type { Recipe } from '../../types';
 import { useDeleteRecipe } from '../../hooks/useRecipeMutations';
+import FavoriteButton from '../favorites/FavoriteButton';
 import styles from './RecipeCard.module.css';
 
 interface RecipeCardProps {
@@ -71,21 +72,25 @@ const RecipeCard: React.FC<RecipeCardProps> = memo(({ recipe, showActions = fals
           <span className={styles.titleIcon}>🍽️</span>
           {recipe.name}
         </h3>
-        <div className={styles.badges}>
-          {recipe.cuisine_type && (
-            <span className={`${styles.badge} ${styles.badgeCuisine}`}>
-              🌍 {recipe.cuisine_type}
-            </span>
-          )}
-          {recipe.difficulty && (
-            <span className={`${styles.badge} ${difficultyClass}`}>
-              {recipe.difficulty.charAt(0).toUpperCase() + recipe.difficulty.slice(1)}
-            </span>
-          )}
-          <span className={`${styles.badge} ${recipe.is_vegetarian ? styles.badgeVeg : styles.badgeNonVeg}`}>
-            {recipe.is_vegetarian ? '🌱 Veg' : '🍗 Non-Veg'}
-          </span>
+        <div style={{ display: 'flex', gap: '8px', zIndex: 10 }}>
+          <FavoriteButton recipe_id={recipe.id} size="sm" />
         </div>
+      </div>
+
+      <div className={styles.badges}>
+        {recipe.cuisine_type && (
+          <span className={`${styles.badge} ${styles.badgeCuisine}`}>
+            🌍 {recipe.cuisine_type}
+          </span>
+        )}
+        {recipe.difficulty && (
+          <span className={`${styles.badge} ${difficultyClass}`}>
+            {recipe.difficulty.charAt(0).toUpperCase() + recipe.difficulty.slice(1)}
+          </span>
+        )}
+        <span className={`${styles.badge} ${recipe.is_vegetarian ? styles.badgeVeg : styles.badgeNonVeg}`}>
+          {recipe.is_vegetarian ? '🌱 Veg' : '🍗 Non-Veg'}
+        </span>
       </div>
 
       {/* Description */}

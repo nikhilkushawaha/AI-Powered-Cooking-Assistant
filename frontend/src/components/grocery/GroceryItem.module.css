@@ -1,0 +1,71 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-primary);
+  font-size: 12px;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.2s ease;
+}
+
+.checked .checkbox {
+  background: var(--text-secondary);
+  border-color: var(--text-secondary);
+}
+
+.content {
+  flex: 1;
+}
+
+.name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.name {
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.quantity {
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.recipes {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-style: italic;
+  transition: color 0.2s;
+}
+
+.checked .name,
+.checked .quantity,
+.checked .recipes {
+  color: var(--border);
+  text-decoration: line-through;
+}

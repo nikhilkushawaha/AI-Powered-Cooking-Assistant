@@ -10,6 +10,7 @@ const SignupPage = lazy(() => import('./pages/SignupPage'));
 const ChatPage = lazy(() => import('./pages/ChatPage'));
 const RecipePage = lazy(() => import('./pages/RecipePage'));
 const RAGPage = lazy(() => import('./pages/RAGPage'));
+const FavoritesPage = lazy(() => import('./pages/FavoritesPage'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -107,6 +108,14 @@ const App: React.FC = () => {
               element={
                 <ProtectedRoute>
                   <RAGPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <ProtectedRoute>
+                  <FavoritesPage />
                 </ProtectedRoute>
               }
             />

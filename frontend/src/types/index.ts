@@ -134,3 +134,58 @@ export interface UploadDocumentResponse {
   created_at: string;
   message: string;
 }
+
+// ── Phase 4: Favorites and Grocery ─────────────────────────────────────────────
+
+export interface FavoriteOut {
+  id: string;
+  recipe_id: string;
+  created_at: string;
+  recipe: Recipe;
+}
+
+export interface FavoriteListResponse {
+  favorites: FavoriteOut[];
+  total: number;
+}
+
+export interface FavoriteStatusResponse {
+  recipe_id: string;
+  is_favorited: boolean;
+  message: string;
+}
+
+export interface GroceryRequest {
+  recipe_ids: string[];
+}
+
+export interface GroceryItem {
+  name: string;
+  total_quantity: string;
+  unit: string | null;
+  recipes: string[];
+}
+
+export interface GroceryListResponse {
+  items: GroceryItem[];
+  total_items: number;
+  recipe_names: string[];
+  generated_at: string;
+}
+
+export interface RecommendationOut {
+  name: string;
+  description: string;
+  cuisine_type: string;
+  difficulty: string;
+  cooking_time: number;
+  is_vegetarian: boolean;
+  reason: string;
+  ingredients_preview: string[];
+}
+
+export interface RecommendationResponse {
+  recommendations: RecommendationOut[];
+  based_on: string;
+  dietary_preference: string;
+}

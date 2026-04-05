@@ -2,11 +2,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { useAuthStore } from '../../store/authStore';
+import { useFavoriteStore } from '../../store/favoriteStore';
 import Avatar from '../ui/Avatar';
 import Button from '../ui/Button';
 
 const Navbar: React.FC = () => {
   const { user, isAuthenticated, logout } = useAuthStore();
+  const { totalFavorites } = useFavoriteStore();
   const navigate = useNavigate();
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -57,6 +59,13 @@ const Navbar: React.FC = () => {
               onClick={() => navigate('/knowledge')}
             >
               📚 Knowledge
+            </button>
+            <button
+              className={`${styles['nav-link']} ${location.pathname === '/favorites' ? styles.active : ''}`}
+              onClick={() => navigate('/favorites')}
+            >
+              ❤️ Favorites
+              {totalFavorites > 0 && <span className={styles['fav-badge']}>{totalFavorites}</span>}
             </button>
           </div>
         )}
