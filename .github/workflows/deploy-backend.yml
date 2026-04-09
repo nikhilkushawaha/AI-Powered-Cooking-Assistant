@@ -1,0 +1,39 @@
+name: Deploy Backend to Digital Ocean
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'docker-compose.prod.yml'
+      - 'nginx/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Digital Ocean via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            # Navigate to project directory
+            cd /opt/chefai
+
+            # Pull latest code
+            git pull origin main
+
+            # Rebuild and restart backend
+            docker-compose -f docker-compose.prod.yml \
+              up -d --build backend
+
+            # Clean up unused images
+            docker image prune -f
+
+            echo "✅ Backend deployed successfully"

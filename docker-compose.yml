@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+
+  # ── FastAPI Backend ──────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: chefai_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env.development
+    volumes:
+      # Mount code for hot reload in development
+      - ./backend:/app
+      # Persist ChromaDB data between restarts
+      - chroma_data:/app/chroma_db
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - chefai_network
+
+volumes:
+  chroma_data:
+    driver: local
+
+networks:
+  chefai_network:
+    driver: bridge
